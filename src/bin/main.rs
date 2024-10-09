@@ -11,7 +11,7 @@ fn main() {
     //     .read_line(&mut number_of_points)
     //     .expect("Couldn't read input.");
     // let number_of_points: usize = number_of_points.trim().parse().unwrap();
-    let number_of_points: usize = 10;
+    let number_of_points: usize = 10_000_000;
 
     fn generate_haversine(number_of_points: usize) -> Vec<[f64; 4]> {
         let mut rng = rand::thread_rng();

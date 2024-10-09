@@ -1,11 +1,11 @@
 use perfaware::haversine;
 use perfaware::parser;
-use perfaware::profiler::profiler;
+use perfaware::profiler::hp_profiler;
 use std::{fs::File, io::Read};
 
 fn main() {
     // TODO: Experiment with buffered reader vs. one time read
-    let mut profiler = profiler::Profiler::build();
+    let mut profiler = hp_profiler::Profiler::build();
     profiler.init_node();
     let mut file = File::open("haversine_10000k.json").expect("JSON file should exist");
     let mut json = String::new();
