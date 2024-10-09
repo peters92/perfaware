@@ -5,7 +5,7 @@ pub mod math {
         a * a
     }
 
-    pub fn radian_from_degress(degree: f64) -> f64 {
+    pub fn radian_from_degrees(degree: f64) -> f64 {
         0.01745329251994329577f64 * degree
     }
 
@@ -15,11 +15,11 @@ pub mod math {
         let lon_1: f64 = x0;
         let lon_2: f64 = x1;
 
-        let delta_lat = radian_from_degress(lat_2 - lat_1);
-        let delta_lon = radian_from_degress(lon_2 - lon_1);
+        let delta_lat = radian_from_degrees(lat_2 - lat_1);
+        let delta_lon = radian_from_degrees(lon_2 - lon_1);
 
-        let lat_1 = radian_from_degress(lat_1);
-        let lat_2 = radian_from_degress(lat_2);
+        let lat_1 = radian_from_degrees(lat_1);
+        let lat_2 = radian_from_degrees(lat_2);
 
         let a = square(f64::sin(delta_lat / 2.0))
             + f64::cos(lat_1) * f64::cos(lat_2) * square(f64::sin(delta_lon / 2.0));

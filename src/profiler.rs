@@ -53,7 +53,7 @@ pub mod profiler {
                     node.increment();
                     node.increment_byte_count(byte_count);
                 }
-                None => panic!("No nodes found. You forgot to initalize the profiler."),
+                None => panic!("No nodes found. You forgot to initialize the profiler."),
             }
 
             // Init new node in profiler
