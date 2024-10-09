@@ -12,7 +12,9 @@ pub mod json {
 
         // Find the first colon, that's the beginning of the json-array
         while let Some(c) = json_iterator.next() {
-            if c == ':' {break}
+            if c == ':' {
+                break;
+            }
         }
 
         let result = parse_array(&mut json_iterator);
@@ -23,8 +25,9 @@ pub mod json {
         let mut array = Vec::new();
 
         while let Some(c) = json.next() {
-            if c == ']' {break}
-            else {
+            if c == ']' {
+                break;
+            } else {
                 parse_object(json, &mut array)
             }
         }
@@ -45,8 +48,11 @@ pub mod json {
     fn parse_string(json: &mut Chars<'_>) {
         let _ = json.next().unwrap(); // consume the opening '"'
         while let Some(c) = json.next() {
-            if c != '"' {continue}
-            else {break}
+            if c != '"' {
+                continue;
+            } else {
+                break;
+            }
         }
     }
 
@@ -56,8 +62,9 @@ pub mod json {
         while let Some(c) = json.next() {
             if c == ':' {
                 // do nothing
-            } else if c == ',' || c == '}' { break }
-            else {
+            } else if c == ',' || c == '}' {
+                break;
+            } else {
                 number.push(c);
             }
         }
@@ -70,7 +77,7 @@ pub mod json {
             }
         }
     }
-    fn remove_whitespace(json: String) -> String{
+    fn remove_whitespace(json: String) -> String {
         // Remove all whitespace
         json.as_bytes()
             .into_iter()
@@ -86,7 +93,7 @@ pub mod json {
             "\"y0\"" => true,
             "\"x1\"" => true,
             "\"y1\"" => true,
-            _ => false
+            _ => false,
         }
     }
 }

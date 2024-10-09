@@ -2,7 +2,7 @@ use rand::Rng;
 use std::fs;
 
 // Custom utils
-use haversine::utils::math;
+use perfaware::haversine::math;
 
 fn main() {
     // println!("Enter number of pairs for the generated data:");
@@ -46,8 +46,7 @@ fn main() {
         )
     }
 
-    fn write_ref_result(reference_sum: f64, number_of_points: usize)
-        -> std::io::Result<()> {
+    fn write_ref_result(reference_sum: f64, number_of_points: usize) -> std::io::Result<()> {
         let output = String::from(format!("{}", reference_sum));
 
         fs::write(
