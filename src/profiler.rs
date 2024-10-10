@@ -5,9 +5,8 @@ pub mod hp_profiler {
     use std::time::{Duration, Instant};
 
     pub fn read_tsc() -> u64 {
-        unsafe {
-            _rdtsc()
-        }
+        // profileapi::QueryPerformanceCounter();
+        unsafe { _rdtsc() }
     }
 
     struct ProfilerNode {
@@ -84,8 +83,7 @@ pub mod hp_profiler {
                 "Profiler results:
                 \rTotal time:   {:.2?} ({:.2}%)\
                 \rTotal cycles:   {:.2?} ({:.2}%)",
-                total_time, 100.,
-                total_cycles, 100.
+                total_time, 100., total_cycles, 100.
             )?;
 
             // For each ProfileNode gather information and calculate stats
